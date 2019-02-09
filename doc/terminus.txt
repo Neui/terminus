@@ -184,6 +184,15 @@ OPTIONS                                                      *terminus-options*
 
     let g:TerminusFocusReporting=0
 <
+                                               *g:TerminusFocusTerminalForward*
+  |g:TerminusFocusTerminalForward|                         boolean (default: 1)
+
+  Controls whether Terminus should forward focus reporting to terminals
+  inside vim. This might cause issues since it's done in a kinda non-standard
+  way. To disable this feature, set to 0: >
+
+    let g:TerminusFocusTerminalForward=0
+<
                                                      *g:TerminusBracketedPaste*
   |g:TerminusBracketedPaste|                               boolean (default: 1)
 
