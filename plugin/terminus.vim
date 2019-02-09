@@ -126,6 +126,10 @@ if s:focus
       " Indirectly fixes scrambled ??? characters in vim terminals
       tmap <expr> <f20> terminus#private#term_focus_lost()
       tmap <expr> <f21> terminus#private#term_focus_gained()
+      if get(g:, 'TerminusFocusTerminalForward', 1)
+        autocmd FocusLost * call term_sendkeys('', "\<Esc>[O")
+        autocmd FocusGained * call term_sendkeys('', "\<Esc>[I")
+      endif
     endif
 
     if v:version > 703 || v:version == 703 && has('patch438')
